@@ -14,7 +14,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
+	int count = 0, n;
 	char c, *s;
 
 	va_start(args, format);
@@ -45,6 +45,11 @@ int _printf(const char *format, ...)
 					write(1, s, 1);
 					count++;
 				}
+				break;
+			case 'd':
+			case 'i':
+				n = va_arg(args,int);
+				print_int(n);
 				break;
 		}
 	}
