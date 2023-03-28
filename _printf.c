@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		format++;
 		switch (*format)
 		{
-			case 'c':
+			case 'f':
 				c = va_arg(args, int);
 				write(1, &c, 1);
 				count++;
