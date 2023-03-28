@@ -33,13 +33,15 @@ int _printf(const char *format, ...)
 		format++;
 		switch (*format)
 		{
-			case 'f':
+			case 'c':
 				c = va_arg(args, int);
 				write(1, &c, 1);
 				count++;
 				break;
 			case 's':
 				s = va_arg(args, char *);
+				if (s == NULL)
+					s = "(NULL)";
 				for (; *s != '\0'; s++)
 				{
 					write(1, s, 1);
