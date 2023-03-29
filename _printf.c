@@ -11,39 +11,39 @@
  * Return: int
 */
 
+extern specifier_t specifiers[];
+
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
+	int count = 0, i;
 
 	va_start(args, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	for (; *format != '\0'; format++)
+	while (*format)
 	{
-		if (*format != '%')
+		if (*format == '%')
+		{
+			format++;
+			for (i = 0; specifiers[i].spec; i++)
+			{
+				if (*format == *(specifiers[i].spec))
+				{
+					count += specifiers[i].f(args);
+					break;
+				}
+			}
+		}
+		else
 		{
 			write(1, format, 1);
 			count++;
-			continue;
 		}
 		format++;
-		switch (*format)
-		{
-			case 'c':
-				count += print_char(args);
-				break;
-			case 's':
-				count += print_string(args);
-				break;
-			case '%':
-				count += print_percent();
-				break;
-			default:
-				break;
-		}
+	
 	}
 	va_end(args);
 	return (count);

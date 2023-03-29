@@ -5,9 +5,15 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+typedef struct specifier
+{
+	char *spec;
+	int (*f)(va_list);
+} specifier_t;
+
 int print_char(va_list args);
 int print_string(va_list args);
-int print_percent(void);
+int print_percent(va_list args);
 int _printf(const char *format, ...);
 
 #endif

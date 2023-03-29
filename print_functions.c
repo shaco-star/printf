@@ -1,6 +1,13 @@
 #include "main.h"
 #include <unistd.h>
 
+specifier_t specifiers[] = {
+	{"c", print_char},
+	{"s", print_string},
+	{"%", print_percent},
+	{NULL, NULL}
+};
+
 /**
  * _strlen - return length of string
  *
@@ -57,12 +64,13 @@ int print_string(va_list args)
 /**
  * print_percent - print char
  *
+ * @args: argument
  *
  * Return: int
 */
 
-int print_percent(void)
+int print_percent(va_list args)
 {
-
+	(void)args;
 	return (write(1, "%", 1));
 }
