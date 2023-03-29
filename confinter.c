@@ -5,7 +5,7 @@
  * @num: input number
  * @base: input base
  * @lowercase: flag  hexa
- * 
+ *
  * Return: result
  */
 
@@ -29,3 +29,4 @@ char *convert(unsigned long int num, int base, int lowercase)
 
 	return (p);
 }
+

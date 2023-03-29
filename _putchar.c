@@ -22,4 +22,6 @@ int _putchar(char c)
 		i++;
 	}
 	return (1);
+
 }
+

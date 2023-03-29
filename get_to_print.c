@@ -2,11 +2,11 @@
 
 /**
  * get_print - function to selects right printing
- * 
+ *
  * @s: character
- * 
+ *
  * Description: structs array
- * 
+ *
  * Return: pointer
  */
 
@@ -23,7 +23,7 @@ int (*get_print(char s))(va_list, flags_x *)
 		{'b', print_binary},
 		{'o', print_octal}
 		};
-        
+
 	int flags = 14;
 
 	register int i;
@@ -34,3 +34,4 @@ int (*get_print(char s))(va_list, flags_x *)
 
 	return (NULL);
 }
+

@@ -6,6 +6,7 @@
  * @f: pointer for flags
  * Return: number
  */
+
 int print_int(va_list l, flags_x *f)
 {
 	int num = va_arg(l, int);
@@ -29,8 +30,10 @@ int print_int(va_list l, flags_x *f)
  * print_unsigned - prints unsigned integer
  * @l: va_list
  * @f: pointer for flags
+ *
  * Return: number
  */
+
 int print_unsigned(va_list l, flags_x *f)
 {
 	unsigned int x = va_arg(l, unsigned int);
@@ -43,7 +46,6 @@ int print_unsigned(va_list l, flags_x *f)
 
 /**
  * print_number - helper function
- * 
  * @n: integer
  */
 
@@ -64,14 +66,13 @@ void print_number(int n)
 		print_number(nn / 10);
 
 	_putchar((nn % 10) + '0');
-    
 }
 
 /**
  * count_digit - returns number
- * 
+ *
  * @i: integer
- * 
+ *
  * Return: number
  */
 
@@ -92,4 +93,6 @@ int count_digit(int i)
 	}
 
 	return (d);
+
 }
+

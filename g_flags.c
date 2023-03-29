@@ -4,7 +4,7 @@
 
 /**
  * get_flag - function to flags
- * 
+ *
  * @s: character
  * @f: pointer to struct
  *
@@ -33,3 +33,4 @@ int get_flag(char s, flags_x *f)
 
 	return (i);
 }
+
