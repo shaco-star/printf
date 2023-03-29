@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+
 /**
  * struct flags - struct flags
  * @plus: flag '+'
@@ -37,6 +38,7 @@ int print_hex_big(va_list l, flags_x *f);
 int print_binary(va_list l, flags_x *f);
 
 int print_octal(va_list l, flags_x *f);
+
 
 int _printf(const char *format, ...);
 
