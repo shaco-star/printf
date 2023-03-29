@@ -52,4 +52,15 @@ int print_string(va_list l, flags_x *f);
 
 int print_char(va_list l, flags_x *f);
 
+int _putchar(char c);
+
+int _puts(char *str);
+
+char *convert(unsigned long int num, int base, int lowercase);
+
+int (*get_print(char s))(va_list, flags_x *);
+
+int get_flag(char s, flags_x *f);
+
+
 #endif
