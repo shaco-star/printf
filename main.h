@@ -5,7 +5,9 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-void print_int(int n);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(void);
 int _printf(const char *format, ...);
 
 #endif
