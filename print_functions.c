@@ -48,8 +48,8 @@ int print_string(va_list args)
 	char *s;
 
 	s = va_arg(args, char *);
-	if (s == NULL)
-		s = "(NULL)";
+	if (!s)
+		s = "(null)";
 
 	return (write(1, s, _strlen(s)));
 }

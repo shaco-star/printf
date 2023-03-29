@@ -41,6 +41,12 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
+			if (!specifiers[i].spec)
+			{
+				write(1, "%", 1);
+				write(1, format, 1);
+				count += 2;
+			}
 		}
 		else
 		{
