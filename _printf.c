@@ -11,10 +11,15 @@
  * Return: int
 */
 
-extern specifier_t specifiers[];
 
 int _printf(const char *format, ...)
 {
+	  static specifier_t specifiers[] = {
+		   {"c", print_char},
+		   {"s", print_string},
+		   {"%", print_percent},
+		   {NULL, NULL}
+	   };
 	va_list args;
 	int count = 0, i;
 
@@ -43,7 +48,7 @@ int _printf(const char *format, ...)
 			count++;
 		}
 		format++;
-	
+
 	}
 	va_end(args);
 	return (count);

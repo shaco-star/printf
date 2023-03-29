@@ -1,12 +1,6 @@
 #include "main.h"
 #include <unistd.h>
 
-specifier_t specifiers[] = {
-	{"c", print_char},
-	{"s", print_string},
-	{"%", print_percent},
-	{NULL, NULL}
-};
 
 /**
  * _strlen - return length of string
