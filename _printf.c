@@ -10,18 +10,14 @@
  * Return: int
 */
 
-
 int _printf(const char *format, ...)
 {
-
-	  static specifier_t specifiers[] = {
-		   {"c", print_char},
-		   {"s", print_string},
-		   {"%", print_percent},
-		   {NULL, NULL}
-	   };
+	int (*printfunc)(va_list, flags_x *);
+	const char *p;
 	va_list args;
-	int count = 0, i;
+	flags_x f = {0, 0, 0};
+
+	register int count = 0;
 
 	va_start(args, format);
 
@@ -31,35 +27,24 @@ int _printf(const char *format, ...)
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 
-
-	
-	while (*format)
+	for (p = format; *p; p++)
 	{
-		if (*format == '%')
+		if (*p == '%')
 		{
-			format++;
-			for (i = 0; specifiers[i].spec; i++)
+			p++;
+			if (*p == '%')
 			{
-				if (*format == *(specifiers[i].spec))
-				{
-					count += specifiers[i].f(args);
-					break;
-				}
+				count += _putchar('%');
+				continue;
 			}
-			if (!specifiers[i].spec)
-			{
-				write(1, "%", 1);
-				write(1, format, 1);
-				count += 2;
-			}
-		}
-		else
-		{
-			write(1, format, 1);
-			count++;
-		}
-		format++;
-
+			while (get_flag(*p, &f))
+				p++;
+			printfunc = get_print(*p);
+			count += (printfunc)
+				? printfunc(args, &f)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
 	}
 	_putchar(-1);
 
