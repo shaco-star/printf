@@ -44,6 +44,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				s = va_arg(args, char *);
+				if (s == NULL)
+					s = "(NULL)";
 				for (; *s != '\0'; s++)
 				{
 					write(1, s, 1);
