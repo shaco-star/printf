@@ -62,7 +62,7 @@ char *convert(unsigned long int num, int base, int lowercase);
 
 int (*get_print(char s))(va_list, flags_x *);
 
-int get_flag(char s, flags_x *f);
+int get_flag(char s, flags_x *i);
 
 int print_big_char(va_list l, flags_x *f);
 
