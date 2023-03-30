@@ -101,3 +101,37 @@ int print_rev(va_list l, flags_x *f)
 
 	return (i);
 }
+
+/**
+ * print_rot13 - prints string use rot13
+ * @l: list of argus
+ * @f: pointer to struct
+ * Return: length string
+ */
+
+int print_rot13(va_list l, flags_x *f)
+{
+	int i, z;
+	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *str = va_arg(l, char *);
+
+	(void)f;
+
+	for (z = 0; str[z]; z++)
+	{
+		if (str[z] < 'A' || (str[z] > 'Z' && str[z] < 'a') || str[z] > 'z')
+			_putchar(str[z]);
+		else
+		{
+			for (i = 0; i <= 52; i++)
+			{
+				if (str[z] == rot13[i])
+					_putchar(ROT13[i]);
+			}
+		}
+	}
+
+	return (z);
+}
+

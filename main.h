@@ -72,4 +72,6 @@ int print_percent(va_list l, flags_x *f);
 
 int print_rev(va_list l, flags_x *f);
 
+int print_rot13(va_list l, flags_x *f);
+
 #endif
