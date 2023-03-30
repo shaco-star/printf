@@ -68,4 +68,7 @@ int print_big_char(va_list l, flags_x *f);
 
 int print_address_s_p(va_list l, flags_x *f);
 
+int print_percent(va_list l, flags_x *f);
+
+
 #endif

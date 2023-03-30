@@ -62,3 +62,16 @@ int print_address_s_p(va_list l, flags_x *f)
 
 	return (count);
 }
+
+/**
+ * print_percent - prints a percent
+ * @l: va_list args
+ * @f: pointer to flags
+ * Return: number
+ */
+int print_percent(va_list l, flags_x *f)
+{
+	(void)l;
+	(void)f;
+	return (_putchar('%'));
+}
