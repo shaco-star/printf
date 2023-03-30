@@ -23,6 +23,7 @@ int (*get_print(char s))(va_list, flags_x *)
 		{'b', print_binary},
 		{'o', print_octal},
 		{'S', print_big_char},
+		{'p', print_address_s_p}
 		};
 
 	int flags = 14;

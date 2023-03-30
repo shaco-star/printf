@@ -66,5 +66,6 @@ int get_flag(char s, flags_x *f);
 
 int print_big_char(va_list l, flags_x *f);
 
+int print_address_s_p(va_list l, flags_x *f);
 
 #endif
