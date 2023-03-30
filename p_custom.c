@@ -69,9 +69,35 @@ int print_address_s_p(va_list l, flags_x *f)
  * @f: pointer to flags
  * Return: number
  */
+
 int print_percent(va_list l, flags_x *f)
 {
 	(void)l;
 	(void)f;
 	return (_putchar('%'));
+}
+
+/**
+ * print_rev - prints a reverse string
+ * @l: args
+ * @f: pointer to struct
+ * Return: length
+ */
+
+int print_rev(va_list l, flags_x *f)
+{
+	int i = 0, x;
+	char *s = va_arg(l, char *);
+
+	(void)f;
+	if (!s)
+		s = "(null)";
+
+	while (s[i])
+		i++;
+
+	for (x = i - 1; x >= 0; x--)
+		_putchar(s[x]);
+
+	return (i);
 }
