@@ -22,7 +22,7 @@ int print_big_char(va_list l, flags_x *f)
 		if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
 		{
 			_puts("\\x");
-
+            
 			count += 2;
 			resp = convert(s[i], 16, 0);
 			if (!resp[1])
@@ -35,3 +35,30 @@ int print_big_char(va_list l, flags_x *f)
 	return (count);
 }
 
+#include "main.h"
+
+/**
+ * print_addres_s_p - prints address hexa format
+ * @l: va_list arguments
+ * @f: pointer to struct
+ * Return: number
+ */
+
+int print_address_s_p(va_list l, flags_x *f)
+{
+	char *strn;
+	unsigned long int p = va_arg(l, unsigned long int);
+
+	register int count = 0;
+
+	(void)f;
+
+	if (!p)
+		return (_puts("(nil)"));
+
+	strn = convert(p, 16, 1);
+	count += _puts("0x");
+	count += _puts(strn);
+
+	return (count);
+}
