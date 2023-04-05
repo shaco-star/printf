@@ -4,10 +4,10 @@
 #include <stdlib.h>
 
 /**
- * _func - printf format
+ * func - printf format
  *
  * @format: format
- * @spec: spec
+ * @specifiers: spec
  * @args: args
  *
  * Return: int
